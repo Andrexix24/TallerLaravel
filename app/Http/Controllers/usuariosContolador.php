@@ -24,6 +24,7 @@ class usuariosContolador extends Controller
     public function create()
     {
         //
+        return view('usuarios.registrar');
     }
 
     /**
@@ -32,6 +33,17 @@ class usuariosContolador extends Controller
     public function store(Request $request)
     {
         //
+        $usuario=new usuario();
+        $usuario->nombre=$request->input('nombre');
+        $usuario->apellidos=$request->input('apellidos');
+        $usuario->correo=$request->input('correo');
+        $usuario->telefono=$request->input('telefono');
+        $usuario->direccion=$request->input('direccion');
+        $usuario->id_rol=$request->input('rol');
+
+        $usuario->save();
+
+        return redirect()->route('usuarios.listar');
     }
 
     /**

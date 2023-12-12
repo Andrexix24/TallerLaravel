@@ -33,15 +33,15 @@ class proveedoresControler extends Controller
     public function store(Request $request)
     {
         //
-        // $producto=new producto();
-        // $producto->nombre=$request->input('nombre');
-        // $producto->descripcion=$request->input('descripcion');
-        // $producto->precio=$request->input('precio');
-        // $producto->id_categoria=$request->input('rol');
+        $proveedor=new proveedore();
+        $proveedor->nombre=$request->input('nombre');
+        $proveedor->direccion=$request->input('direccion');
+        $proveedor->telefono=$request->input('telefono');
+        $proveedor->correo=$request->input('correo');
 
-        // $producto->save();
+        $proveedor->save();
 
-        // return redirect()->route('productos.listar');
+        return redirect()->route('proveedores.listar');
     }
 
     /**

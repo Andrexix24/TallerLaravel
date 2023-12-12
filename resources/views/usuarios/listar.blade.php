@@ -10,7 +10,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="mb-1">
-                        <a href="#" class="btn btn-success">Agregar</a>
+                        <a href="{{route('usuarios.formulario')}}" class="btn btn-success">Agregar</a>
                     </div>
                     <table id="datatablesSimple">
                         <thead>

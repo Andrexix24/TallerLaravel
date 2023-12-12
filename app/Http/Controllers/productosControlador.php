@@ -37,7 +37,7 @@ class productosControlador extends Controller
         $producto->nombre=$request->input('nombre');
         $producto->descripcion=$request->input('descripcion');
         $producto->precio=$request->input('precio');
-        $producto->id_categoria=$request->input('rol');
+        $producto->id_categoria=$request->input('categoria');
 
         $producto->save();
 

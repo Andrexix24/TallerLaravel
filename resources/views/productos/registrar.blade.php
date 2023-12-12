@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
-                            <select class="form-select" aria-label="Default select example" name="rol">
+                            <select class="form-select" aria-label="Default select example" name="categoria">
                                 <option selected>Seleccionar</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Prueba</option>

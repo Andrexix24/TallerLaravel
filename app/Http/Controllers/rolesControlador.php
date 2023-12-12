@@ -24,6 +24,7 @@ class rolesControlador extends Controller
     public function create()
     {
         //
+        return view('roles/registrar');
     }
 
     /**
@@ -32,6 +33,12 @@ class rolesControlador extends Controller
     public function store(Request $request)
     {
         //
+        $rol=new role();
+        $rol->nombre=$request->input('nombre');
+
+        $rol->save();
+
+        return redirect()->route('roles.listar');
     }
 
     /**

@@ -48,7 +48,10 @@ Route::post('/proveedores/registrar', [proveedoresControler::class,'store'])->na
 
 // roles listar 
 Route::get('/roles', [rolesControlador::class,'index'])->name('roles.listar');
-
+Route::get('/roles/registrar', [rolesControlador::class,'create'])->name('roles.formulario');
+Route::post('/roles/registrar', [rolesControlador::class,'store'])->name('roles.registrar');
 
 // usuarios listar 
 Route::get('/usuarios', [usuariosContolador::class,'index'])->name('usuarios.listar');
+Route::get('/usuarios/registrar', [usuariosContolador::class,'create'])->name('usuarios.formulario');
+Route::post('/usuarios/registrar', [usuariosContolador::class,'store'])->name('usuarios.registrar');
