@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\categoria;
+use App\Models\proveedore;
 use Illuminate\Http\Request;
 
-class categoriasControlador extends Controller
+class proveedoresControler extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class categoriasControlador extends Controller
     public function index()
     {
         //
-        $categoria = categoria::all();
-        return view('categorias.listar', compact('categoria'));
+        $proveedores = proveedore::all();
+        return view('proveedores.listar', compact('proveedores'));
     }
 
     /**
@@ -24,7 +24,7 @@ class categoriasControlador extends Controller
     public function create()
     {
         //
-        return view('categorias.registrar');
+        return view('proveedores.registrar');
     }
 
     /**
@@ -33,13 +33,15 @@ class categoriasControlador extends Controller
     public function store(Request $request)
     {
         //
-        $categoria = new categoria();
-        $categoria->nombre =  $request->input('nombre');
-        $categoria->descripcion = $request->input('descripcion');
+        // $producto=new producto();
+        // $producto->nombre=$request->input('nombre');
+        // $producto->descripcion=$request->input('descripcion');
+        // $producto->precio=$request->input('precio');
+        // $producto->id_categoria=$request->input('rol');
 
-        $categoria->save();
+        // $producto->save();
 
-        return redirect()->route('categorias.listar');
+        // return redirect()->route('productos.listar');
     }
 
     /**

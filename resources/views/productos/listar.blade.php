@@ -7,29 +7,36 @@
 
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Tables</h1>
             <div class="card mb-4">
                 <div class="card-body">
+                    <div class="mb-1">
+                        <a href="{{route('productos.formulario')}}" class="btn btn-success">Agregar</a>
+                    </div>
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Precio</th>
+                                <th>Categoria</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($producto as $item)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>{{ $item['id'] }}</td>
+                                <td>{{ $item['nombre'] }}</td>
+                                <td>{{ $item['descripcion'] }}</td>
+                                <td>{{ $item['precio'] }}</td>
+                                <td>{{ $item['id_categoria'] }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Editar</a>
+                                    <a href="#" class="btn btn-danger">Eliminar</a>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

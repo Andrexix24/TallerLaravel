@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\categoria;
+use App\Models\usuario;
 use Illuminate\Http\Request;
 
-class categoriasControlador extends Controller
+class usuariosContolador extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class categoriasControlador extends Controller
     public function index()
     {
         //
-        $categoria = categoria::all();
-        return view('categorias.listar', compact('categoria'));
+        $usuarios = usuario::all();
+        return view('usuarios.listar', compact('usuarios'));
     }
 
     /**
@@ -24,7 +24,6 @@ class categoriasControlador extends Controller
     public function create()
     {
         //
-        return view('categorias.registrar');
     }
 
     /**
@@ -33,13 +32,6 @@ class categoriasControlador extends Controller
     public function store(Request $request)
     {
         //
-        $categoria = new categoria();
-        $categoria->nombre =  $request->input('nombre');
-        $categoria->descripcion = $request->input('descripcion');
-
-        $categoria->save();
-
-        return redirect()->route('categorias.listar');
     }
 
     /**

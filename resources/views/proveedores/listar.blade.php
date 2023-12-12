@@ -1,6 +1,6 @@
 @extends('layout.index')
 
-@section('nombreModulo', 'Clientes / Listar')
+@section('nombreModulo', 'Proveedores / Listar')
 
 @section('contenidoGeneral')
 
@@ -10,7 +10,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="mb-1">
-                        <a href="{{route('clientes.formulario')}}" class="btn btn-success">Agregar</a>
+                        <a href="{{route('proveedores.formulario')}}" class="btn btn-success">Agregar</a>
                     </div>
                     <table id="datatablesSimple">
                         <thead>
@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($clientes as $item)
+                            @foreach ($proveedores as $item)
                             <tr>
                                 <td>{{ $item['id'] }}</td>
                                 <td>{{ $item['nombre'] }}</td>

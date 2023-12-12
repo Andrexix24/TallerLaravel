@@ -24,6 +24,7 @@ class clientesControlador extends Controller
     public function create()
     {
         //
+        return view('clientes.registrar');
     }
 
     /**
@@ -32,6 +33,15 @@ class clientesControlador extends Controller
     public function store(Request $request)
     {
         //
+        $cliente=new cliente();
+        $cliente->nombre=$request->input('nombre');
+        $cliente->direccion=$request->input('direccion');
+        $cliente->telefono=$request->input('telefono');
+        $cliente->correo=$request->input('correo');
+
+        $cliente->save();
+
+        return redirect()->route('clientes.listar');
     }
 
     /**

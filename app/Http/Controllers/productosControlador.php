@@ -24,6 +24,7 @@ class productosControlador extends Controller
     public function create()
     {
         //
+        return view('productos.registrar');
     }
 
     /**
@@ -32,6 +33,15 @@ class productosControlador extends Controller
     public function store(Request $request)
     {
         //
+        $producto=new producto();
+        $producto->nombre=$request->input('nombre');
+        $producto->descripcion=$request->input('descripcion');
+        $producto->precio=$request->input('precio');
+        $producto->id_categoria=$request->input('rol');
+
+        $producto->save();
+
+        return redirect()->route('productos.listar');
     }
 
     /**
