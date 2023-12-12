@@ -33,10 +33,10 @@
                         </div>
                         <div class="col-md-12 mt-3">
                             <select class="form-select" aria-label="Default select example" name="rol">
-                                <option selected>Seleccionar</option>
-                                <option value="1">Admin</option>
-                                <option value="2">Prueba</option>
-                                <option value="3">Prueba2</option>
+                                <option selected>Rol</option>
+                                @foreach ($rol as $item)
+                                    <option value="{{$item['id']}}">{{$item['rol']}}</option>
+                                @endforeach
                             </select>
                     </div>
                 </div>

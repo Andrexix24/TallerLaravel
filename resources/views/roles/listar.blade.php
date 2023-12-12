@@ -24,7 +24,7 @@
                             @foreach ($roles as $item)
                             <tr>
                                 <td>{{ $item['id'] }}</td>
-                                <td>{{ $item['nombre'] }}</td>
+                                <td>{{ $item['rol'] }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary">Editar</a>
                                     <a href="#" class="btn btn-danger">Eliminar</a>

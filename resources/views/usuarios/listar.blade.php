@@ -34,7 +34,7 @@
                                 <td>{{ $item['correo'] }}</td>
                                 <td>{{ $item['telefono'] }}</td>
                                 <td>{{ $item['direccion'] }}</td>
-                                <td>{{ $item['id_rol'] }}</td>
+                                <td>{{ $item['rol'] }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary">Editar</a>
                                     <a href="#" class="btn btn-danger">Eliminar</a>

@@ -30,9 +30,9 @@
                                 <td>{{ $item['nombre'] }}</td>
                                 <td>{{ $item['descripcion'] }}</td>
                                 <td>{{ $item['precio'] }}</td>
-                                <td>{{ $item['id_categoria'] }}</td>
+                                <td>{{ $item['categoria'] }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('productos.editar',$item['id'])}}" class="btn btn-primary">Editar</a>
                                     <a href="#" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>

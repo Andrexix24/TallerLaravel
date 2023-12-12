@@ -34,7 +34,7 @@ class rolesControlador extends Controller
     {
         //
         $rol=new role();
-        $rol->nombre=$request->input('nombre');
+        $rol->rol=$request->input('nombre');
 
         $rol->save();
 

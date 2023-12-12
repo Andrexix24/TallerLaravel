@@ -58,6 +58,8 @@ class clientesControlador extends Controller
     public function edit(string $id)
     {
         //
+        $cliente=cliente::find($id);
+        return view('clientes.editar', compact('cliente'));
     }
 
     /**
@@ -66,6 +68,15 @@ class clientesControlador extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $cliente=cliente::find($id);
+        $cliente->nombre=$request->input('nombre');
+        $cliente->direccion=$request->input('direccion');
+        $cliente->telefono=$request->input('telefono');
+        $cliente->correo=$request->input('correo');
+
+        $cliente->save();
+
+        return redirect()->route('clientes.listar');
     }
 
     /**

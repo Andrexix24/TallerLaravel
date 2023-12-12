@@ -58,6 +58,8 @@ class proveedoresControler extends Controller
     public function edit(string $id)
     {
         //
+        $proveedor = proveedore::find($id);
+        return view('proveedores.editar', compact('proveedor'));
     }
 
     /**
@@ -66,6 +68,15 @@ class proveedoresControler extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $proveedor=proveedore::find($id);
+        $proveedor->nombre=$request->input('nombre');
+        $proveedor->direccion=$request->input('direccion');
+        $proveedor->telefono=$request->input('telefono');
+        $proveedor->correo=$request->input('correo');
+
+        $proveedor->save();
+
+        return redirect()->route('proveedores.listar');
     }
 
     /**

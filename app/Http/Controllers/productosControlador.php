@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\categoria;
 use App\Models\producto;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class productosControlador extends Controller
     public function index()
     {
         //
-        $producto = producto::all();
+        $producto = producto::join("categorias as c", "productos.id_categoria","=","c.id")
+        ->select("productos.id","productos.nombre","productos.descripcion","productos.precio","c.categoria")
+        ->get();
+        // return compact('producto');
         return view('productos.listar', compact('producto'));
     }
 
@@ -24,7 +28,8 @@ class productosControlador extends Controller
     public function create()
     {
         //
-        return view('productos.registrar');
+        $categorias=categoria::all();
+        return view('productos.registrar', compact('categorias'));
     }
 
     /**
@@ -58,6 +63,10 @@ class productosControlador extends Controller
     public function edit(string $id)
     {
         //
+        $categorias=categoria::all();
+        $producto = producto::find($id);
+        $productos=categoria::all()->where("id","=","$producto->id_categoria");
+        return view('productos.editar', compact('producto','categorias', 'productos'));
     }
 
     /**
@@ -66,6 +75,15 @@ class productosControlador extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $producto=producto::find($id);
+        $producto->nombre=$request->input('nombre');
+        $producto->descripcion=$request->input('descripcion');
+        $producto->precio=$request->input('precio');
+        $producto->id_categoria=$request->input('categoria');
+
+        $producto->save();
+
+        return redirect()->route('productos.listar');
     }
 
     /**

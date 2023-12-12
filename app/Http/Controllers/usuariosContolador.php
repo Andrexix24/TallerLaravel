@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\role;
 use App\Models\usuario;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class usuariosContolador extends Controller
     public function index()
     {
         //
-        $usuarios = usuario::all();
+        $usuarios = usuario::join("roles","usuarios.id_rol","=","roles.id")->get();
         return view('usuarios.listar', compact('usuarios'));
     }
 
@@ -24,7 +25,8 @@ class usuariosContolador extends Controller
     public function create()
     {
         //
-        return view('usuarios.registrar');
+        $rol=role::all();
+        return view('usuarios.registrar', compact('rol'));
     }
 
     /**

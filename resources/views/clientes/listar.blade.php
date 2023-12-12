@@ -32,7 +32,7 @@
                                 <td>{{ $item['telefono'] }}</td>
                                 <td>{{ $item['correo'] }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('clientes.editar',$item['id'])}}" class="btn btn-primary">Editar</a>
                                     <a href="#" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>

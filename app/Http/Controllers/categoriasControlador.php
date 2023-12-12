@@ -34,7 +34,7 @@ class categoriasControlador extends Controller
     {
         //
         $categoria = new categoria();
-        $categoria->nombre =  $request->input('nombre');
+        $categoria->categoria =  $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
 
         $categoria->save();
@@ -56,6 +56,8 @@ class categoriasControlador extends Controller
     public function edit(string $id)
     {
         //
+        $categoria = categoria::find($id);
+        return view('categorias.editar', compact('categoria'));
     }
 
     /**
@@ -64,6 +66,13 @@ class categoriasControlador extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $categoria = categoria::find($id);
+        $categoria->categoria =  $request->input('nombre');
+        $categoria->descripcion = $request->input('descripcion');
+
+        $categoria->save();
+
+        return redirect()->route('categorias.listar');
     }
 
     /**
