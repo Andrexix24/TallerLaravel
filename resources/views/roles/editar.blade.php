@@ -1,25 +1,19 @@
 @extends('layout.index')
 
-@section('nombreModulo', 'Categorias / Registrar')
+@section('nombreModulo', 'Roles / Editar')
 
 @section('contenidoGeneral')
 
 
     <main>
         <div class="container-fluid px-4">
-            <form method="POST" action="{{route('categorias.registrar')}}">
+            <form method="POST" action="{{route('roles.actualizar',$roles->id)}}">
                 @csrf
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input required name="nombre" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input name="nombre" value="{{$roles->rol}}" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Nombre</label>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mt-3">
-                        <div class="form-floating">
-                            <input required name="descripcion" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                            <label for="inputLastName">Descripcion</label>
                         </div>
                     </div>
                 </div>

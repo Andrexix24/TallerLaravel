@@ -55,6 +55,9 @@ class productosControlador extends Controller
     public function show(string $id)
     {
         //
+        $producto = producto::find($id);
+        $productos=categoria::all()->where("id","=","$producto->id_categoria");
+        return view('productos.eliminar', compact('producto','productos'));
     }
 
     /**
@@ -92,5 +95,8 @@ class productosControlador extends Controller
     public function destroy(string $id)
     {
         //
+        $producto=producto::find($id);
+        $producto->delete();
+        return redirect()->route('productos.listar');
     }
 }

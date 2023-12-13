@@ -50,6 +50,8 @@ class clientesControlador extends Controller
     public function show(string $id)
     {
         //
+        $cliente=cliente::find($id);
+        return view('clientes.eliminar', compact('cliente'));
     }
 
     /**
@@ -85,5 +87,9 @@ class clientesControlador extends Controller
     public function destroy(string $id)
     {
         //
+        $cliente = cliente::find($id);
+        $cliente->delete();
+
+        return redirect()->route('clientes.listar');
     }
 }

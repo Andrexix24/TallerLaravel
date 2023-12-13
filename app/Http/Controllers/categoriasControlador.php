@@ -48,6 +48,8 @@ class categoriasControlador extends Controller
     public function show(string $id)
     {
         //
+        $categoria = categoria::find($id);
+        return view('categorias.eliminar', compact('categoria'));
     }
 
     /**
@@ -81,5 +83,9 @@ class categoriasControlador extends Controller
     public function destroy(string $id)
     {
         //
+        $categoria = categoria::find($id);
+        $categoria->delete();
+
+        return redirect()->route('categorias.listar');
     }
 }

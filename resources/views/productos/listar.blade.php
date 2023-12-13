@@ -33,7 +33,7 @@
                                 <td>{{ $item['categoria'] }}</td>
                                 <td>
                                     <a href="{{route('productos.editar',$item['id'])}}" class="btn btn-primary">Editar</a>
-                                    <a href="#" class="btn btn-danger">Eliminar</a>
+                                    <a href="{{route('productos.confirmar',$item['id'])}}" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             @endforeach

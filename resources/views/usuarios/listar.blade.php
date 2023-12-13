@@ -36,8 +36,8 @@
                                 <td>{{ $item['direccion'] }}</td>
                                 <td>{{ $item['rol'] }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Editar</a>
-                                    <a href="#" class="btn btn-danger">Eliminar</a>
+                                    <a href="{{route('usuarios.editar',$item['id'])}}" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('usuarios.confirmar',$item['id'])}}" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             @endforeach

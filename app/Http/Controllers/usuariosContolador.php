@@ -15,7 +15,9 @@ class usuariosContolador extends Controller
     public function index()
     {
         //
-        $usuarios = usuario::join("roles","usuarios.id_rol","=","roles.id")->get();
+        $usuarios = usuario::join("roles as r","usuarios.id_rol","=","r.id")
+        ->select("usuarios.id","usuarios.nombre","usuarios.apellidos","usuarios.correo","usuarios.telefono","usuarios.direccion","r.rol")
+        ->get();
         return view('usuarios.listar', compact('usuarios'));
     }
 
@@ -54,6 +56,9 @@ class usuariosContolador extends Controller
     public function show(string $id)
     {
         //
+        $usuario = usuario::find($id);
+        $usuarios=role::all()->where("id","=","$usuario->id_rol");
+        return view('usuarios.eliminar', compact('usuario','usuarios'));
     }
 
     /**
@@ -62,6 +67,10 @@ class usuariosContolador extends Controller
     public function edit(string $id)
     {
         //
+        $rol=role::all();
+        $usuario=usuario::find($id);
+        $roles=role::all()->where("id","=","$usuario->id_rol");
+        return view('usuarios.editar', compact('usuario', 'rol','roles'));
     }
 
     /**
@@ -70,6 +79,17 @@ class usuariosContolador extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $usuario=usuario::find($id);
+        $usuario->nombre=$request->input('nombre');
+        $usuario->apellidos=$request->input('apellidos');
+        $usuario->correo=$request->input('correo');
+        $usuario->telefono=$request->input('telefono');
+        $usuario->direccion=$request->input('direccion');
+        $usuario->id_rol=$request->input('rol');
+
+        $usuario->save();
+
+        return redirect()->route('usuarios.listar');
     }
 
     /**
@@ -78,5 +98,8 @@ class usuariosContolador extends Controller
     public function destroy(string $id)
     {
         //
+        $usuario=usuario::find($id);
+        $usuario->delete();
+        return redirect()->route('usuarios.listar');
     }
 }

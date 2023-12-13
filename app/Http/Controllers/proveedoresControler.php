@@ -50,6 +50,8 @@ class proveedoresControler extends Controller
     public function show(string $id)
     {
         //
+        $proveedores = proveedore::find($id);
+        return view('proveedores.eliminar', compact('proveedores'));
     }
 
     /**
@@ -85,5 +87,9 @@ class proveedoresControler extends Controller
     public function destroy(string $id)
     {
         //
+        $proveedor=proveedore::find($id);
+        $proveedor->delete();
+
+        return redirect()->route('proveedores.listar');
     }
 }

@@ -26,8 +26,8 @@
                                 <td>{{ $item['id'] }}</td>
                                 <td>{{ $item['rol'] }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Editar</a>
-                                    <a href="#" class="btn btn-danger">Eliminar</a>
+                                    <a href="{{route('roles.editar',$item['id'])}}" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('roles.confirmar',$item['id'])}}" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             @endforeach

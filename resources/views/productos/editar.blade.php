@@ -30,11 +30,11 @@
                     </div>
                     <div class="col-md-12 mt-3">
                             <select class="form-select" aria-label="Default select example" name="categoria">
-                                <option selected>
                                     @foreach ($productos as $item)
-                                        {{$item['categoria']}}
+                                        <option value="{{$item['id']}}">
+                                            {{$item['categoria']}}
+                                        </option>
                                     @endforeach
-                                </option>
                                 @foreach ($categorias as $item)
                                     <option value="{{$item['id']}}">{{$item['categoria']}}</option>
                                 @endforeach

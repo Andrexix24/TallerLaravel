@@ -12,32 +12,33 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input name="nombre" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="nombre" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Nombre</label>
                         </div>
                         <div class="form-floating mb-3 mb-md-0 mt-3">
-                            <input name="apellidos" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="apellidos" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Apellidos</label>
                         </div>
                         <div class="form-floating mb-3 mb-md-0 mt-3">
-                            <input name="correo" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="correo" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Correo</label>
                         </div>
                         <div class="form-floating mb-3 mb-md-0 mt-3">
-                            <input name="telefono" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="telefono" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Telefono</label>
                         </div>
                         <div class="form-floating mb-3 mb-md-0 mt-3">
-                            <input name="direccion" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="direccion" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Direccion</label>
                         </div>
                         <div class="col-md-12 mt-3">
-                            <select class="form-select" aria-label="Default select example" name="rol">
+                            <select class="form-select" aria-label="Default select example" name="rol" required>
                                 <option selected>Rol</option>
                                 @foreach ($rol as $item)
                                     <option value="{{$item['id']}}">{{$item['rol']}}</option>
                                 @endforeach
                             </select>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-4 mb-0">

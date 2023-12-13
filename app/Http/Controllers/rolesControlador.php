@@ -47,6 +47,8 @@ class rolesControlador extends Controller
     public function show(string $id)
     {
         //
+        $role = Role::find($id);
+        return view('roles.eliminar', compact('role'));
     }
 
     /**
@@ -55,6 +57,8 @@ class rolesControlador extends Controller
     public function edit(string $id)
     {
         //
+        $roles = role::find($id);
+        return view('roles.editar', compact('roles'));
     }
 
     /**
@@ -63,6 +67,12 @@ class rolesControlador extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $rol = role::find($id);
+        $rol->rol=$request->input('nombre');
+
+        $rol->save();
+
+        return redirect()->route('roles.listar');
     }
 
     /**
@@ -71,5 +81,8 @@ class rolesControlador extends Controller
     public function destroy(string $id)
     {
         //
+        $rol = Role::find($id);
+        $rol->delete();
+        return redirect()->route('roles.listar');
     }
 }

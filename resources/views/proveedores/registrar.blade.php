@@ -12,25 +12,25 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input name="nombre" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                            <input required name="nombre" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                             <label for="inputFirstName">Nombre</label>
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div class="form-floating">
-                            <input name="direccion" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                            <input required name="direccion" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
                             <label for="inputLastName">Dirección</label>
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div class="form-floating">
-                            <input name="telefono" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                            <input required name="telefono" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
                             <label for="inputLastName">Telefono</label>
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <div class="form-floating">
-                            <input name="correo" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                            <input required name="correo" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
                             <label for="inputLastName">Correo</label>
                         </div>
                     </div>
